@@ -7,6 +7,8 @@ import { createBrowserRouter } from 'react-router-dom'
 import About from './components/About/About'
 import Home from './components/Home/Home'
 import Contact from './components/Contact/Contact'
+import Default from './components/Default/Default'
+import Friends from './components/Friends/Friends'
 
 // const router = createBrowserRouter([
 //   {
@@ -28,6 +30,15 @@ const router = createBrowserRouter ([
     path : '/',
     element : <Home></Home>,
     children : [
+      {
+        path : '/',
+        element : <Default></Default>
+      },
+      {
+        path : '/friends',
+        element : <Friends></Friends>,
+        loader : () => fetch('https://jsonplaceholder.typicode.com/users'),
+      },
       {
         path : '/about',
         element : <About></About>
